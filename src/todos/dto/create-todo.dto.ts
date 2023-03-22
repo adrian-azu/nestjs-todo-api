@@ -1,17 +1,17 @@
 import {
   IsBoolean,
-  IsInt,
   IsNotEmpty,
   IsString,
+  IsUUID,
   Length,
 } from 'class-validator';
 
 export class CreateTodoDto {
-  @IsInt()
-  id: number;
+  @IsUUID()
+  id: string;
 
-  @IsInt()
-  userId: number;
+  @IsUUID()
+  userId: string;
 
   @IsString()
   @IsNotEmpty()

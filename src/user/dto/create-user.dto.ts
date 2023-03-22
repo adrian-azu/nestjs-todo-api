@@ -1,8 +1,8 @@
-import { IsInt, IsNotEmpty, IsString, Matches } from 'class-validator';
+import { IsInt, IsNotEmpty, IsString, IsUUID, Matches } from 'class-validator';
 
 export class CreateUserDto {
-  @IsInt()
-  id: number;
+  @IsUUID()
+  id: string;
 
   @IsInt()
   name: string;

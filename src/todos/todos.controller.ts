@@ -42,11 +42,11 @@ export class TodosController {
 
   @Get(':id')
   async findOne(@Request() req, @Param('id') id: string) {
-    const todo = await this.todosService.findOne(+id);
+    const todo = await this.todosService.findOne(id);
     if (!todo) {
       throw new HttpException('Todo not found', HttpStatus.NOT_FOUND);
     }
-    if (todo.userId !== +req.user.userId) {
+    if (todo.userId !== req.user.userId) {
       throw new HttpException('Unauthorized todo', HttpStatus.UNAUTHORIZED);
     }
     return todo;
@@ -58,11 +58,11 @@ export class TodosController {
     @Param('id') id: string,
     @Body() updateTodoDto: UpdateTodoDto,
   ) {
-    const todo = await this.todosService.update(+id, updateTodoDto);
+    const todo = await this.todosService.update(id, updateTodoDto);
     if (!todo) {
       throw new HttpException('Todo not found', HttpStatus.NOT_FOUND);
     }
-    if (todo.userId !== +req.user.userId) {
+    if (todo.userId !== req.user.userId) {
       throw new HttpException('Unauthorized todo', HttpStatus.UNAUTHORIZED);
     }
     return todo;
@@ -70,7 +70,7 @@ export class TodosController {
 
   @Delete(':id')
   async remove(@Request() req, @Param('id') id: string) {
-    const isDeleted = await this.todosService.remove(+id, +req.user.userId);
+    const isDeleted = await this.todosService.remove(id, req.user.userId);
     if (!isDeleted) {
       throw new HttpException('Todo not found', HttpStatus.NOT_FOUND);
     }
