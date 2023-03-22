@@ -28,7 +28,26 @@
 
 [Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
 
+
 ## Installation
+
+### Clone the repository and install node packages
+
+```
+//on local using ssh
+git clone git@/github.com/adrian-azu/nestjs-todo-api.git
+//on local using https
+git clone https://github.com/adrian-azu/nestjs-todo-api.git
+// go to project directory
+cd nestjs-todo-api
+```
+
+### Create an ENV file and Setup config variables
+
+```
+// with git bash/linux/macOs
+cp .env.sample .env
+```
 
 ```bash
 $ npm install
@@ -59,6 +78,89 @@ $ npm run test:e2e
 # test coverage
 $ npm run test:cov
 ```
+
+## API Reference
+
+#### Register
+```http
+  POST auth/register
+```
+
+| Parameter | Type     | Description                |
+| :-------- | :------- | :------------------------- |
+| `name` | `string` | **Required**. |
+| `email` | `string` | **Required**. |
+| `password` | `string` | **Required**. |
+
+#### Login
+
+```http
+  POST auth/login
+```
+
+| Parameter | Type     | Description                |
+| :-------- | :------- | :------------------------- |
+| `email` | `string` | **Required**. |
+| `password` | `string` | **Required**. |
+
+#### Todo
+
+```http
+  GET /todos
+```
+
+| HEADERS | Type     | Description                |
+| :-------- | :------- | :------------------------- |
+| `Authorization` | `Bearer` | **Required** User Authentication Token|
+
+```http
+  POST /todos
+```
+ Parameter | Type     | Description                |
+| :-------- | :------- | :------------------------- |
+| `title` | `string` | **Required**. |
+| `content` | `string` | **Optional**. |
+| `is_done` | `boolean` | **Required**. |
+
+| HEADERS | Type     | Description                |
+| :-------- | :------- | :------------------------- |
+| `Authorization` | `Bearer` | **Required** User Authentication Token|
+
+```http
+  GET /todos/:todoId
+```
+ Parameter | Type     | Description                |
+| :-------- | :------- | :------------------------- |
+| `todoId` | `string` | **Required**. |
+
+| HEADERS | Type     | Description                |
+| :-------- | :------- | :------------------------- |
+| `Authorization` | `Bearer` | **Required** User Authentication Token|
+
+```http
+  PATCH /todos/:todoId
+```
+ Parameter | Type     | Description                |
+| :-------- | :------- | :------------------------- |
+| `todoId` | `string` | **Required**. |
+| `title` | `string` | **Required**. |
+| `content` | `string` | **Optional**. |
+| `is_done` | `boolean` | **Required**. |
+
+| HEADERS | Type     | Description                |
+| :-------- | :------- | :------------------------- |
+| `Authorization` | `Bearer` | **Required** User Authentication Token|
+
+```http
+  DELETE /todos/:todoId
+```
+ Parameter | Type     | Description                |
+| :-------- | :------- | :------------------------- |
+| `todoId` | `string` | **Required**. |
+
+| HEADERS | Type     | Description                |
+| :-------- | :------- | :------------------------- |
+| `Authorization` | `Bearer` | **Required** User Authentication Token|
 
 ## Support
 
