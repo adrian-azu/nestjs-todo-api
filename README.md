@@ -33,20 +33,20 @@
 
 ### Clone the repository and install node packages
 
-```
-//on local using ssh
-git clone git@/github.com/adrian-azu/nestjs-todo-api.git
-//on local using https
-git clone https://github.com/adrian-azu/nestjs-todo-api.git
-// go to project directory
+```bash
+# on local using ssh
+$ git clone git@/github.com/adrian-azu/nestjs-todo-api.git
+# on local using https
+$ git clone https://github.com/adrian-azu/nestjs-todo-api.git
+# go to project directory
 cd nestjs-todo-api
 ```
 
 ### Create an ENV file and Setup config variables
 
-```
-// with git bash/linux/macOs
-cp .env.sample .env
+```bash
+# with git bash/linux/macOs
+$ cp .env.sample .env
 ```
 
 ```bash
